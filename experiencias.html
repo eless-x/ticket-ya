@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiencias | TicketYa</title>
+  <meta name="description" content="Fan-to-Fan para reventa segura al precio original y Meet & Greet con artistas y famosos. Experiencias verificadas por TicketYa.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F43F5E'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="TicketYa, ir al inicio">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Ticket<span>Ya</span></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Principal">
+        <a href="index.html" data-nav>Inicio</a>
+        <a href="cartelera.html" data-nav>Cartelera</a>
+        <a href="experiencias.html" data-nav>Experiencias</a>
+        <a href="contacto.html" data-nav>Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cartelera.html" class="btn btn-primary">Ver cartelera</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Experiencias</span></nav>
+        <p class="kicker">Experiencias exclusivas</p>
+        <h1>Más cerca de tus eventos favoritos</h1>
+        <p class="lead">Compra entradas liberadas al precio original con Fan-to-Fan o solicita un pase Meet & Greet con artistas y famosos.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div data-tabs>
+          <div class="tabs" role="tablist" aria-label="Tipos de experiencia">
+            <button class="tab-btn is-active" role="tab" id="tab-fan" aria-selected="true" aria-controls="panel-fan" tabindex="0">Fan-to-Fan</button>
+            <button class="tab-btn" role="tab" id="tab-meet" aria-selected="false" aria-controls="panel-meet" tabindex="-1">Meet & Greet</button>
+          </div>
+
+          <div class="tab-panels">
+            <!-- Fan-to-Fan -->
+            <div class="tab-panel" role="tabpanel" id="panel-fan" aria-labelledby="tab-fan" data-anchor="fan-to-fan">
+              <span id="fan-to-fan" class="anchor-target" aria-hidden="true"></span>
+              <div class="section-head" style="margin-top:8px">
+                <div>
+                  <p class="kicker">Reventa segura</p>
+                  <h2>Fan-to-Fan: precio original, QR nuevo</h2>
+                  <p class="section-note">Si no puedes ir, libera tu entrada. Si buscas una, cómprala sin sobreprecio. TicketYa invalida el QR anterior y genera uno nuevo.</p>
+                </div>
+              </div>
+
+              <div class="panel-grid" style="margin-bottom:32px">
+                <div class="panel-card reveal">
+                  <h3 style="font-size:1.2rem;margin-bottom:6px">Entradas disponibles</h3>
+                  <p class="small" style="margin-bottom:18px">Busca por evento o filtra por zona.</p>
+                  <div class="form-row" style="margin-bottom:16px">
+                    <label class="field">
+                      <span>Buscar</span>
+                      <input type="search" id="resale-search" placeholder="Evento, usuario o zona" autocomplete="off">
+                    </label>
+                    <label class="field">
+                      <span>Zona</span>
+                      <select id="resale-zone">
+                        <option value="todas">Todas</option>
+                        <option value="VIP frontal">VIP frontal</option>
+                        <option value="Campo general">Campo general</option>
+                        <option value="Tribuna alta">Tribuna alta</option>
+                      </select>
+                    </label>
+                  </div>
+                  <p class="small" id="resale-count" aria-live="polite" style="margin-bottom:12px"></p>
+                  <div class="resale" id="resale-list" style="margin-top:0"></div>
+                  <div class="empty-state" id="resale-empty" hidden style="padding:32px 16px">
+                    <h3>No hay entradas con ese filtro</h3>
+                    <p>Prueba con otro evento o zona.</p>
+                  </div>
+                </div>
+
+                <div class="panel-card reveal" style="--delay:80ms">
+                  <h3 style="font-size:1.2rem;margin-bottom:6px">Publicar mi entrada</h3>
+                  <p class="small" style="margin-bottom:18px">Publica al precio original para proteger a la comunidad. Validamos los datos antes de publicar.</p>
+                  <form id="publish-form" class="form-stack" novalidate>
+                    <div class="field">
+                      <label for="publish-event">Evento</label>
+                      <select id="publish-event" name="eventId" required>
+                        <option value="">Selecciona un evento</option>
+                      </select>
+                      <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form-row">
+                      <div class="field">
+                        <label for="publish-zona">Zona</label>
+                        <select id="publish-zona" name="zona" required>
+                          <option value="">Selecciona zona</option>
+                          <option value="VIP frontal">VIP frontal</option>
+                          <option value="Campo general">Campo general</option>
+                          <option value="Tribuna alta">Tribuna alta</option>
+                        </select>
+                        <p class="field-error" aria-live="polite"></p>
+                      </div>
+                      <div class="field">
+                        <label for="publish-precio">Precio (S/)</label>
+                        <input type="number" id="publish-precio" name="precio" min="1" step="0.01" required placeholder="Ej. 75">
+                        <p class="field-hint" id="publish-price-hint">Selecciona un evento para ver el precio máximo.</p>
+                        <p class="field-error" aria-live="polite"></p>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="publish-email">Correo de contacto</label>
+                      <input type="email" id="publish-email" name="email" required placeholder="tu@correo.com" autocomplete="email">
+                      <p class="field-error" aria-live="polite"></p>
+                    </div>
+                    <label class="field-check">
+                      <input type="checkbox" name="terminos" required>
+                      <span>Acepto publicar al precio original y las condiciones de Fan-to-Fan.</span>
+                    </label>
+                    <p class="field-error" aria-live="polite" data-for="terminos"></p>
+                    <button class="btn btn-primary btn-block" type="submit">Publicar entrada</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meet & Greet -->
+            <div class="tab-panel" role="tabpanel" id="panel-meet" aria-labelledby="tab-meet" hidden data-anchor="meet-greet">
+              <span id="meet-greet" class="anchor-target" aria-hidden="true"></span>
+              <div class="section-head" style="margin-top:8px">
+                <div>
+                  <p class="kicker">Encuentros exclusivos</p>
+                  <h2>Meet & Greet con artistas y famosos</h2>
+                  <p class="section-note">Cupos limitados, experiencias verificadas y confirmación por correo. Busca por artista o filtra por categoría.</p>
+                </div>
+              </div>
+
+              <div class="panel-card reveal" style="margin-bottom:24px">
+                <div class="form-row">
+                  <label class="field">
+                    <span>Buscar experiencia</span>
+                    <input type="search" id="meet-search" placeholder="Artista, evento o beneficio" autocomplete="off">
+                  </label>
+                  <label class="field">
+                    <span>Categoría</span>
+                    <select id="meet-category">
+                      <option value="todas">Todas</option>
+                      <option value="Música">Música</option>
+                      <option value="Teatro">Teatro</option>
+                      <option value="Deporte">Deporte</option>
+                      <option value="Influencer">Influencer</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <p class="small" id="meet-count" aria-live="polite" style="margin-bottom:12px"></p>
+              <div class="meet-grid" id="meet-grid"></div>
+              <div class="empty-state" id="meet-empty" hidden>
+                <h3>No hay experiencias con ese filtro</h3>
+                <p>Prueba con otra búsqueda o categoría.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><p class="footer-logo">Ticket<span>Ya</span></p><p class="small">Plataforma peruana de ticketing con vista previa del asiento, pago grupal y experiencias verificadas.</p></div>
+      <div><h4>Explorar</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="cartelera.html">Cartelera</a></li><li><a href="experiencias.html">Experiencias</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div><h4>Experiencias</h4><ul><li><a href="experiencias.html?tab=fan-to-fan">Fan-to-Fan</a></li><li><a href="experiencias.html?tab=meet-greet">Meet & Greet</a></li><li><a href="contacto.html?tab=publicar">Publicar evento</a></li></ul></div>
+      <div><h4>¿Necesitas ayuda?</h4><p class="small">Nuestro equipo responde en menos de 24 horas hábiles.</p><a href="contacto.html" class="btn btn-light">Ir a contacto</a></div>
+    </div>
+    <p class="footer-copy">© 2026 TicketYa Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Buy Fan-to-Fan modal -->
+  <div class="modal" id="buy-modal" role="dialog" aria-modal="true" aria-labelledby="buy-title" hidden>
+    <div class="modal-card modal-md">
+      <div class="modal-head primary">
+        <div>
+          <p class="small" style="color:#C7D2FE">Fan-to-Fan</p>
+          <h3 id="buy-title">Adquirir entrada</h3>
+        </div>
+        <button class="icon-btn" data-close aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="panel-card" style="padding:16px;background:var(--bg)">
+          <strong id="buy-event-name" style="display:block;font-family:var(--font-head)"></strong>
+          <span class="small" id="buy-event-detail"></span>
+        </div>
+        <form id="buy-form" class="form-stack" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="buy-name">Nombre completo</label>
+              <input type="text" id="buy-name" name="nombre" required minlength="3" autocomplete="name" placeholder="Tu nombre">
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="buy-email">Correo electrónico</label>
+              <input type="email" id="buy-email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+          </div>
+          <label class="field-check">
+            <input type="checkbox" name="terminos" required>
+            <span>Confirmo que deseo adquirir esta entrada y recibir un nuevo QR a mi nombre.</span>
+          </label>
+          <p class="field-error" aria-live="polite"></p>
+          <div class="modal-actions">
+            <button class="btn btn-outline" type="button" data-close>Cancelar</button>
+            <button class="btn btn-primary" type="submit" style="flex:1">Confirmar adquisición</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meet & Greet modal -->
+  <div class="modal" id="meet-modal" role="dialog" aria-modal="true" aria-labelledby="meet-title" hidden>
+    <div class="modal-card modal-md">
+      <div class="modal-head dark">
+        <div>
+          <p class="small">Solicitud de pase</p>
+          <h3 id="meet-title">Meet & Greet</h3>
+        </div>
+        <button class="icon-btn" data-close aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="panel-card" style="padding:16px;background:var(--bg)">
+          <strong id="meet-artist-name" style="display:block;font-family:var(--font-head)"></strong>
+          <span class="small" id="meet-artist-detail"></span>
+        </div>
+        <form id="meet-form" class="form-stack" novalidate>
+          <input type="hidden" id="meet-id" name="meetId">
+          <div class="form-row">
+            <div class="field">
+              <label for="meet-name">Nombre completo</label>
+              <input type="text" id="meet-name" name="nombre" required minlength="3" autocomplete="name">
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="meet-email">Correo electrónico</label>
+              <input type="email" id="meet-email" name="email" required autocomplete="email">
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="meet-phone">Teléfono</label>
+              <input type="tel" id="meet-phone" name="telefono" required pattern="[0-9+\s]{8,15}" placeholder="999 999 999">
+              <p class="field-hint">Solo números, espacios o +.</p>
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="meet-qty">Cantidad de cupos</label>
+              <input type="number" id="meet-qty" name="cantidad" required min="1" max="4" value="1">
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="meet-msg">Mensaje opcional</label>
+            <textarea id="meet-msg" name="mensaje" rows="3" maxlength="240" placeholder="¿Algo que debamos saber?"></textarea>
+            <p class="field-hint">Máximo 240 caracteres.</p>
+            <p class="field-error" aria-live="polite"></p>
+          </div>
+          <label class="field-check">
+            <input type="checkbox" name="terminos" required>
+            <span>Acepto que la solicitud está sujeta a disponibilidad y confirmación por correo.</span>
+          </label>
+          <p class="field-error" aria-live="polite"></p>
+          <div class="modal-actions">
+            <button class="btn btn-outline" type="button" data-close>Cancelar</button>
+            <button class="btn btn-primary" type="submit" style="flex:1">Enviar solicitud</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/experiencias.js"></script>
+</body>
+</html>

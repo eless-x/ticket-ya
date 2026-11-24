@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | TicketYa</title>
+  <meta name="description" content="Soporte para fans, publicación de eventos y preguntas frecuentes de TicketYa. Respondemos en menos de 24 horas hábiles.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F43F5E'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="TicketYa, ir al inicio">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Ticket<span>Ya</span></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Principal">
+        <a href="index.html" data-nav>Inicio</a>
+        <a href="cartelera.html" data-nav>Cartelera</a>
+        <a href="experiencias.html" data-nav>Experiencias</a>
+        <a href="contacto.html" data-nav>Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cartelera.html" class="btn btn-primary">Explorar eventos</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Contacto</span></nav>
+        <p class="kicker">Estamos para ayudarte</p>
+        <h1>Contacto, soporte y publicación de eventos</h1>
+        <p class="lead">¿Problemas con tu QR, quieres publicar un evento o tienes dudas sobre Fan-to-Fan? Escríbenos y te respondemos rápido.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="about-grid" style="align-items:start">
+          <div class="reveal">
+            <div data-tabs>
+              <div class="tabs" role="tablist" aria-label="Opciones de contacto">
+                <button class="tab-btn is-active" role="tab" id="tab-soporte" aria-selected="true" aria-controls="panel-soporte" tabindex="0">Soporte al fan</button>
+                <button class="tab-btn" role="tab" id="tab-publicar" aria-selected="false" aria-controls="panel-publicar" tabindex="-1">Publica tu evento</button>
+                <button class="tab-btn" role="tab" id="tab-faq" aria-selected="false" aria-controls="panel-faq" tabindex="-1">Preguntas frecuentes</button>
+              </div>
+
+              <div class="tab-panels">
+                <div class="tab-panel" role="tabpanel" id="panel-soporte" aria-labelledby="tab-soporte">
+                  <div class="panel-card">
+                    <h2 style="font-size:1.35rem;margin-bottom:4px">Soporte al fan</h2>
+                    <p class="small" style="margin-bottom:20px">Cuéntanos tu caso. Te pedimos solo la información necesaria para ayudarte.</p>
+                    <div class="form-success" id="support-success" hidden></div>
+                    <form id="support-form" class="form-stack" novalidate>
+                      <div class="form-row">
+                        <div class="field">
+                          <label for="sup-name">Nombre completo</label>
+                          <input type="text" id="sup-name" name="nombre" required minlength="3" autocomplete="name" placeholder="Valeria Mendoza">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                        <div class="field">
+                          <label for="sup-email">Correo electrónico</label>
+                          <input type="email" id="sup-email" name="correo" required autocomplete="email" placeholder="valeria@correo.com">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="field">
+                          <label for="sup-type">Tipo de solicitud</label>
+                          <select id="sup-type" name="tipo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="qr">No recibí mi QR</option>
+                            <option value="compra">Problema con una compra</option>
+                            <option value="fan-to-fan">Fan-to-Fan</option>
+                            <option value="meet-greet">Meet & Greet</option>
+                            <option value="otro">Otro</option>
+                          </select>
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                        <div class="field">
+                          <label for="sup-order">Código de pedido (opcional)</label>
+                          <input type="text" id="sup-order" name="pedido" placeholder="TY-2026-0001" maxlength="30">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label for="sup-msg">Mensaje</label>
+                        <textarea id="sup-msg" name="mensaje" required minlength="15" maxlength="600" rows="5" placeholder="Describe qué ocurrió y en qué evento. Mientras más detalle, más rápido te ayudamos."></textarea>
+                        <p class="field-hint">Mínimo 15 caracteres.</p>
+                        <p class="field-error" aria-live="polite"></p>
+                      </div>
+                      <label class="field-check">
+                        <input type="checkbox" name="terminos" required>
+                        <span>Acepto que TicketYa use estos datos para responder mi solicitud.</span>
+                      </label>
+                      <p class="field-error" aria-live="polite"></p>
+                      <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="tab-panel" role="tabpanel" id="panel-publicar" aria-labelledby="tab-publicar" hidden>
+                  <div class="panel-card">
+                    <h2 style="font-size:1.35rem;margin-bottom:4px">Publica tu evento</h2>
+                    <p class="small" style="margin-bottom:20px">Cuéntanos sobre tu evento y te contactaremos para evaluar la publicación en TicketYa.</p>
+                    <div class="form-success" id="publish-success" hidden></div>
+                    <form id="event-publish-form" class="form-stack" novalidate>
+                      <div class="form-row">
+                        <div class="field">
+                          <label for="pub-org">Nombre del organizador</label>
+                          <input type="text" id="pub-org" name="organizador" required minlength="3" placeholder="Productora Lima Live">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                        <div class="field">
+                          <label for="pub-email">Correo comercial</label>
+                          <input type="email" id="pub-email" name="correo" required autocomplete="email" placeholder="contacto@organizador.pe">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="field">
+                          <label for="pub-event">Nombre del evento</label>
+                          <input type="text" id="pub-event" name="evento" required minlength="4" placeholder="Festival de verano 2026">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                        <div class="field">
+                          <label for="pub-type">Tipo de evento</label>
+                          <select id="pub-type" name="tipo" required>
+                            <option value="">Selecciona</option>
+                            <option value="concierto">Concierto</option>
+                            <option value="teatro">Teatro</option>
+                            <option value="festival">Festival</option>
+                            <option value="deporte">Deporte/Esports</option>
+                            <option value="taller">Taller</option>
+                            <option value="otro">Otro</option>
+                          </select>
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="field">
+                          <label for="pub-city">Ciudad / distrito</label>
+                          <input type="text" id="pub-city" name="ciudad" required placeholder="Lima, Miraflores">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                        <div class="field">
+                          <label for="pub-capacity">Aforo estimado</label>
+                          <input type="number" id="pub-capacity" name="aforo" required min="50" max="100000" placeholder="500">
+                          <p class="field-error" aria-live="polite"></p>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label for="pub-details">Detalles del evento</label>
+                        <textarea id="pub-details" name="detalles" required minlength="20" maxlength="800" rows="4" placeholder="Fecha tentativa, tipo de público, necesidades de ticketing, experiencias especiales, etc."></textarea>
+                        <p class="field-hint">Mínimo 20 caracteres.</p>
+                        <p class="field-error" aria-live="polite"></p>
+                      </div>
+                      <label class="field-check">
+                        <input type="checkbox" name="terminos" required>
+                        <span>Confirmo que tengo autorización para comercializar este evento.</span>
+                      </label>
+                      <p class="field-error" aria-live="polite"></p>
+                      <button class="btn btn-primary" type="submit">Enviar propuesta</button>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="tab-panel" role="tabpanel" id="panel-faq" aria-labelledby="tab-faq" hidden>
+                  <div class="panel-card">
+                    <h2 style="font-size:1.35rem;margin-bottom:6px">Preguntas frecuentes</h2>
+                    <p class="small" style="margin-bottom:20px">Respuestas rápidas sobre compras, Fan-to-Fan, Meet & Greet y soporte.</p>
+                    <div id="faq-list" data-accordion></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="reveal" style="--delay:100ms">
+            <div class="contact-card">
+              <p class="kicker">Información directa</p>
+              <h3>También puedes escribirnos</h3>
+              <p class="small" style="margin-top:8px">Nuestro equipo de soporte y alianzas atiende de lunes a sábado.</p>
+              <div class="info-list">
+                <div class="info-item">
+                  <div class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></div>
+                  <div><strong>Correo de soporte</strong><span>soporte@ticketya.pe</span></div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L6.91 8.91a16 16 0 0 0 6.18 6.18l1-1a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg></div>
+                  <div><strong>WhatsApp</strong><span>+51 999 888 777</span></div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                  <div><strong>Horario</strong><span>Lun a Sáb, 9:00 AM - 7:00 PM (GMT-5)</span></div>
+                </div>
+                <div class="info-item">
+                  <div class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                  <div><strong>Ubicación</strong><span>Miraflores, Lima, Perú</span></div>
+                </div>
+              </div>
+              <div style="margin-top:24px;padding:16px;background:var(--primary-soft);border-radius:12px">
+                <strong style="display:block;font-family:var(--font-head);font-size:.9375rem;color:var(--primary-dark);margin-bottom:4px">Tiempo de respuesta</strong>
+                <span class="small">Soporte al fan: &lt; 24 h hábiles. Publicación de eventos: 1 a 2 días hábiles.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><p class="footer-logo">Ticket<span>Ya</span></p><p class="small">Plataforma peruana de ticketing con vista previa del asiento, pago grupal y experiencias verificadas.</p></div>
+      <div><h4>Explorar</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="cartelera.html">Cartelera</a></li><li><a href="experiencias.html">Experiencias</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div><h4>Experiencias</h4><ul><li><a href="experiencias.html?tab=fan-to-fan">Fan-to-Fan</a></li><li><a href="experiencias.html?tab=meet-greet">Meet & Greet</a></li><li><a href="contacto.html?tab=publicar">Publicar evento</a></li></ul></div>
+      <div><h4>¿Necesitas ayuda?</h4><p class="small">Nuestro equipo responde en menos de 24 horas hábiles.</p><a href="contacto.html" class="btn btn-light">Ir a contacto</a></div>
+    </div>
+    <p class="footer-copy">© 2026 TicketYa Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>
