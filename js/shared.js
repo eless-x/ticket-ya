@@ -31,8 +31,8 @@ function initNav() {
   const toggle = $('#nav-toggle');
   const nav = $('#site-nav');
   if (!toggle || !nav) return;
-  const close = () => { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); document.body.classList.remove('nav-open'); };
-  const open = () => { toggle.setAttribute('aria-expanded', 'true'); nav.classList.add('is-open'); document.body.classList.add('nav-open'); };
+  const close = () => { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menú'); nav.classList.remove('is-open'); document.body.classList.remove('nav-open'); };
+  const open = () => { toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Cerrar menú'); nav.classList.add('is-open'); document.body.classList.add('nav-open'); };
   toggle.addEventListener('click', () => (nav.classList.contains('is-open') ? close() : open()));
   nav.addEventListener('click', e => { if (e.target.closest('a')) close(); });
   document.addEventListener('click', e => { if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggle.contains(e.target)) close(); });
